@@ -1,0 +1,11 @@
+<h1>おみくじの結果</h1>
+
+<ol>
+  <% @results.each_with_index do |res, index| %>
+    <li>
+      <%= index + 1 %>回目：番号 <%= res['number'] %> → 運勢：<strong><%= res["result"] %></strong>
+    </li>
+  <% end %>
+</ol>
+
+<%= link_to "戻る", root_path %>
