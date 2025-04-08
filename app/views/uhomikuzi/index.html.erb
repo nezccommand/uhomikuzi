@@ -1,0 +1,4 @@
+<h1>おみくじを引こう！</h1>
+
+<%= button_to "1回引く", result_path(times: 1), method: :post, form: { data: { turbo: false } } %>
+<%= button_to "10回引く", result_path(times: 10), method: :post, form: { data: { turbo: false } } %>
