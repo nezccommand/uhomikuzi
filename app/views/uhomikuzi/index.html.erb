@@ -1,14 +1,14 @@
-<div style="height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center;">
-  <h1>ゴリラのおみくじを引いてみよう！</h1>
+<div style="min-height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center;">
+  <h1>ゴリラのガチャを引いてみよう！</h1>
   <%= image_tag "1匹.png", size: "400x400", alt: "ゴリラ画像" %>
   
   <ul style="list-style-type: '・'; text-align: left;">
-    <li>下のボタンを押すとおみくじを引くことができます。</li>
-    <li>おみくじなので1回だけ引いてもいいですし、欲張りさんは10連ガチャも回せます。</li>
+    <li>下のボタンを押すとガチャを回すことができます。</li>
+    <li>運試しで1回だけ回してもいいですし、欲張りさんはいわゆる10連ガチャも回せます。</li>
     <li>光っているゴリラは大体レアです。</li>
   </ul>
   <div class="mt-4">
-    <%= button_to "1回引く", result_path(times: 1), method: :post, form: { data: { turbo: false }, class: "d-inline" }, class: "btn btn-dark me-2" %>
-    <%= button_to "10回引く", result_path(times: 10), method: :post, form: { data: { turbo: false }, class: "d-inline" }, class: "btn btn-dark" %>
+    <%= button_to "1回回す", result_path(times: 1), method: :post, form: { data: { turbo: false }, class: "d-inline" }, class: "btn btn-dark me-2" %>
+    <%= button_to "10回回す", result_path(times: 10), method: :post, form: { data: { turbo: false }, class: "d-inline" }, class: "btn btn-dark" %>
   </div>
 </div>

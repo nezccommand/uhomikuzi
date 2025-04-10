@@ -1,12 +1,15 @@
+<% content_for(:title, "ゴリラのガチャガチャ | #{@results.size}回の結果") %>
 <div style="min-height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center;">
   <br>
-  <h1 style="font-size: 50px;">おみくじの結果</h1>
+  <h1 style="font-size: 50px;">ガチャの結果</h1>
   <br>
   <br>
 <ol style="list-style: none; padding: 0;">
   <% @results.each_with_index do |res, index| %>
     <li style="margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #ddd;">
+      <% if @results.size == 10 %>
       <strong style="font-size: 40px;"><%= index + 1 %>回目</strong><br>
+      <% end %>
       <p style="font-size: 25px;">
         <% if ["金", "銀", "銅", "？？？"].include?(res["result"]) %>
           <span class="sparkle-text"><%= res["result"] %>のゴリラを引きました！</span>
@@ -45,10 +48,14 @@
   </div>
 <% end %>
 </div>
+  <div style="margin-top: 20px; margin-bottom: 5px; display: flex; justify-content: center; width: 100%;">
+    <%= link_to "結果をシェアする", 
+            "https://twitter.com/intent/tweet?url=#{root_url}&text=あなたは#{rare_gorilla(@results)}のゴリラを引きました！",
+            target: "_blank", class: "btn btn-info" %>
+  </div>
   <div style="margin-top: 20px; margin-bottom: 20px; display: flex; justify-content: center; width: 100%;">
     <%= link_to "戻る", root_path, class: "btn btn-dark" %>
   </div>
-</div>
 
 <style>
   .sparkle-text {
@@ -58,14 +65,14 @@
     color: white;
     background-color: transparent;
     text-shadow: 
-      0 0 5px #f8ff00,  /* 黄色 */
-      0 0 10px #f8ff00, /* 黄色 */
-      0 0 15px #ff0000,  /* 赤 */
-      0 0 20px #ff00ff,  /* 紫 */
-      0 0 25px #3ad59f,  /* 緑 */
-      0 0 30px #00cfff,  /* 水色 */
-      0 0 35px #ff7f00;  /* オレンジ */
-    animation: shine 2s linear infinite; /* アニメーション */
+      0 0 5px #f8ff00,
+      0 0 10px #f8ff00,
+      0 0 15px #ff0000,
+      0 0 20px #ff00ff,
+      0 0 25px #3ad59f,
+      0 0 30px #00cfff,
+      0 0 35px #ff7f00;
+    animation: shine 2s linear infinite;
   }
 
   @keyframes shine {
