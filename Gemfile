@@ -57,4 +57,4 @@ group :test do
 end
 
 gem "sqlite3"
-gem 'psych', platforms: :ruby
+gem "psych", platforms: :ruby
