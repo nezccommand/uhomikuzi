@@ -6,7 +6,7 @@ class UhomikuziController < ApplicationController
 
   def result
     times = params[:times].to_i
-    times = 1 if times < 1 # to_iで0になった時用
+    times = 1 if times < 1
 
     results = times.times.map do
       number = rand(1..100)
@@ -14,19 +14,19 @@ class UhomikuziController < ApplicationController
       gorilla =
         case number
         when 49
-          "こむちゃん"
+          "？？？"
         when 99..100
-          "金の🦍"
+          "金のゴリラ"
         when 94..98
-          "銀の🦍"
+          "銀のゴリラ"
         when 85..94
-          "銅の🦍"
+          "銅のゴリラ"
         when 70..84
-          "🦍🦍🦍"
+          "3匹のゴリラ"
         when 50..69
-          "🦍🦍"
+          "2匹のゴリラ"
         else
-          "🦍"
+          "1匹のゴリラ"
       end
       { number: number, result: gorilla }
     end
@@ -37,7 +37,6 @@ class UhomikuziController < ApplicationController
 
   def show_result
     @results = session[:last_results]
-    logger.debug "Results: #{@results.inspect}"
 
     unless @results
       redirect_to root_path, alert: "もう一度おみくじを引いてね！"
