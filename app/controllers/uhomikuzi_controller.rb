@@ -13,22 +13,20 @@ class UhomikuziController < ApplicationController
 
       gorilla =
         case number
-        when 49
+        when 100
           "？？？"
-        when 99..100
-          "金のゴリラ"
-        when 94..98
-          "銀のゴリラ"
+        when 98..99
+          "金"
+        when 93..97
+          "銀"
         when 85..94
-          "銅のゴリラ"
-        when 70..84
-          "3匹のゴリラ"
-        when 50..69
-          "2匹のゴリラ"
+          "銅"
+        when 60..84
+          "3匹"
         else
-          "1匹のゴリラ"
+          "1匹"
       end
-      { number: number, result: gorilla }
+      { result: gorilla }
     end
     session[:last_results] = results
     redirect_to show_result_path
