@@ -1,5 +1,4 @@
 class UhomikuziController < ApplicationController
-
   def index
     session.delete(:last_results)
   end
@@ -25,12 +24,11 @@ class UhomikuziController < ApplicationController
           "3匹"
         else
           "1匹"
-      end
+        end
       { result: gorilla }
     end
     session[:last_results] = results
     redirect_to show_result_path
-    
   end
 
   def show_result
