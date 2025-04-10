@@ -293,6 +293,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
+    webrick (1.9.1)
     websocket (1.2.11)
     websocket-driver (0.7.7)
       base64
@@ -332,6 +333,7 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   web-console
+  webrick (~> 1.7)
 
 BUNDLED WITH
    2.6.3

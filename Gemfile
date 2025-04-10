@@ -58,3 +58,4 @@ end
 
 gem "sqlite3"
 gem "psych", platforms: :ruby
+gem "webrick", "~> 1.7"
