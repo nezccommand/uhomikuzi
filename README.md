@@ -42,7 +42,7 @@ resultアクションをわざわざ2つに分けているのは、sessionを確
   
 @resultに保存された1回ごとの結果を直接画像の名前に結び付けて呼び出せるようにしているのがここすきポイントです。
 ```
-<%= image_tag "#{res["result"]}.png", size: "400x400", alt: "ゴリラ画像" %>
+<%= image_tag "#{res["result"]}.png", size: "400x400", alt: "#{res["result"]}のゴリラ" %>
 ```
 
     
