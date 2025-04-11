@@ -1,0 +1,53 @@
+.sparkle-text {
+  font-size: 25px;
+  font-weight: bold;
+  display: inline-block;
+  color: white;
+  background-color: transparent;
+
+  text-shadow: 
+    0 0 5px #f8ff00,
+    0 0 10px #f8ff00,
+    0 0 15px #ff0000,
+    0 0 20px #ff00ff,
+    0 0 25px #3ad59f,
+    0 0 30px #00cfff,
+    0 0 35px #ff7f00;
+
+  animation: shine 2s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    text-shadow:
+      0 0 5px #f8ff00,
+      0 0 10px #f8ff00,
+      0 0 15px #ff0000,
+      0 0 20px #ff00ff,
+      0 0 25px #3ad59f,
+      0 0 30px #00cfff,
+      0 0 35px #ff7f00;
+  }
+
+  50% {
+    text-shadow:
+      0 0 20px #f8ff00,
+      0 0 30px #f8ff00,
+      0 0 40px #ff0000,
+      0 0 50px #ff00ff,
+      0 0 60px #3ad59f,
+      0 0 70px #00cfff,
+      0 0 80px #ff7f00;
+  }
+
+  100% {
+    text-shadow:
+      0 0 5px #f8ff00,
+      0 0 10px #f8ff00,
+      0 0 15px #ff0000,
+      0 0 20px #ff00ff,
+      0 0 25px #3ad59f,
+      0 0 30px #00cfff,
+      0 0 35px #ff7f00;
+  }
+}

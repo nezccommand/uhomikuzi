@@ -3,7 +3,6 @@
   <br>
   <h1 style="font-size: 50px;">ガチャの結果</h1>
   <br>
-  <br>
 <ol style="list-style: none; padding: 0;">
   <% @results.each_with_index do |res, index| %>
     <li style="margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #ddd;">
@@ -19,8 +18,6 @@
       </p>
       <%= image_tag "#{res["result"]}.png", size: "400x400", alt: "ゴリラ画像" %>
     </li>
-    <br>
-    <br>
   <% end %>
 </ol>
 
@@ -56,55 +53,3 @@
   <div style="margin-top: 20px; margin-bottom: 20px; display: flex; justify-content: center; width: 100%;">
     <%= link_to "戻る", root_path, class: "btn btn-dark" %>
   </div>
-
-<style>
-  .sparkle-text {
-    font-size: 25px; /* 文字を大きく */
-    font-weight: bold;
-    display: inline-block;
-    color: white;
-    background-color: transparent;
-    text-shadow: 
-      0 0 5px #f8ff00,
-      0 0 10px #f8ff00,
-      0 0 15px #ff0000,
-      0 0 20px #ff00ff,
-      0 0 25px #3ad59f,
-      0 0 30px #00cfff,
-      0 0 35px #ff7f00;
-    animation: shine 2s linear infinite;
-  }
-
-  @keyframes shine {
-    0% { 
-      text-shadow: 
-        0 0 5px #f8ff00, 
-        0 0 10px #f8ff00, 
-        0 0 15px #ff0000, 
-        0 0 20px #ff00ff,
-        0 0 25px #3ad59f, 
-        0 0 30px #00cfff, 
-        0 0 35px #ff7f00;
-    }
-    50% { 
-      text-shadow: 
-        0 0 20px #f8ff00, 
-        0 0 30px #f8ff00, 
-        0 0 40px #ff0000, 
-        0 0 50px #ff00ff,
-        0 0 60px #3ad59f, 
-        0 0 70px #00cfff, 
-        0 0 80px #ff7f00;
-    }
-    100% { 
-      text-shadow: 
-        0 0 5px #f8ff00, 
-        0 0 10px #f8ff00, 
-        0 0 15px #ff0000, 
-        0 0 20px #ff00ff,
-        0 0 25px #3ad59f, 
-        0 0 30px #00cfff, 
-        0 0 35px #ff7f00;
-    }
-  }
-</style>
