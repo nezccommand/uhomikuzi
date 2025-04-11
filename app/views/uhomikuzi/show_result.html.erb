@@ -28,7 +28,7 @@
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
       <% @results.each_with_index do |res, index| %>
         <% if index < 5 %>
-          <div style="width: 20%; padding: 10px; margin-bottom: 10px;">
+          <div style="width: 20%; padding: 5px; margin-bottom: 10px;">
             <%= image_tag "#{res["result"]}.png", class: "gorilla-img", alt: "#{res["result"]}のゴリラ" %>
           </div>
         <% end %>
