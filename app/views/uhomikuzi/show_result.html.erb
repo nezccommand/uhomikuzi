@@ -24,24 +24,25 @@
 <% if @results.size == 10 %>
   <h2>10回の結果🦍</h2>
   <br>
-  <div style="border: 2px solid #ddd; padding: 20px; border-radius: 10px;">
-  <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
-    <% @results.each_with_index do |res, index| %>
-      <% if index < 5 %>
-        <div style="width: 18%; padding: 10px;">
-          <%= image_tag "#{res["result"]}.png", size: "100x100", alt: "#{res["result"]}のゴリラ" %>
-        </div>
+  <div style="border: 2px solid #ddd; padding: 10px; border-radius: 10px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+      <% @results.each_with_index do |res, index| %>
+        <% if index < 5 %>
+          <div style="width: 20%; padding: 10px; margin-bottom: 10px;">
+            <%= image_tag "#{res["result"]}.png", class: "gorilla-img", alt: "#{res["result"]}のゴリラ" %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-  <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
-    <% @results.each_with_index do |res, index| %>
-      <% if index >= 5 && index < 10 %>
-        <div style="width: 18%; padding: 10px;">
-          <%= image_tag "#{res["result"]}.png", size: "100x100", alt: "#{res["result"]}のゴリラ" %>
-        </div>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+      <% @results.each_with_index do |res, index| %>
+        <% if index >= 5 && index < 10 %>
+          <div style="width: 20%; padding: 10px; margin-bottom: 10px;">
+            <%= image_tag "#{res["result"]}.png", class: "gorilla-img", alt: "#{res["result"]}のゴリラ" %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 <% end %>
 </div>

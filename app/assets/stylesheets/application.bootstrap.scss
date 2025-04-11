@@ -1,3 +1,16 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 @import "sparkle";
+
+.gorilla-img {
+  width: 100px;
+  height: 100px;
+}
+
+/* スマホ用（画面幅が768px以下の場合） */
+@media screen and (max-width: 768px) {
+  .gorilla-img {
+    width: 60px;  /* スマホ画面で画像サイズを60x60に変更 */
+    height: 60px;  /* 高さも同じく変更 */
+  }
+}
