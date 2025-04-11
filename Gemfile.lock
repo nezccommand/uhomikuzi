@@ -293,7 +293,6 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webrick (1.9.1)
     websocket (1.2.11)
     websocket-driver (0.7.7)
       base64
@@ -310,7 +309,6 @@ PLATFORMS
   arm-linux-musl
   arm64-darwin
   x86_64-darwin
-  x86_64-linux
   x86_64-linux-gnu
   x86_64-linux-musl
 
@@ -322,7 +320,6 @@ DEPENDENCIES
   debug
   jbuilder
   jsbundling-rails
-  psych
   puma (>= 5.0)
   rails (~> 8.0.2)
   rubocop-rails-omakase
@@ -333,7 +330,6 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   web-console
-  webrick (~> 1.7)
 
 BUNDLED WITH
    2.6.3

@@ -1,6 +1,7 @@
 require_relative "boot"
 
 require "rails/all"
+require "active_record/railtie" 
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -10,7 +11,6 @@ module Myapp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.2
-    config.api_only = true
     config.active_support.to_time_preserves_timezone = :zone
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
