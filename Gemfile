@@ -9,8 +9,6 @@ gem "stimulus-rails"
 gem "cssbundling-rails"
 gem "jbuilder"
 
-gem "sqlite3"
-
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 
@@ -27,4 +25,9 @@ end
 group :test do
   gem "capybara"
   gem "selenium-webdriver"
+  gem "sqlite3"
+end
+
+group :production do
+  gem "pg"
 end
