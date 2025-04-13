@@ -16,7 +16,7 @@
           <%= res["result"] %>のゴリラを引きました！
         <% end %>
       </p>
-      <%= image_tag "#{res["result"]}.png", size: "400x400", alt: "#{res["result"]}のゴリラ" %>
+      <%= image_tag "#{res["result"]}.png", size: "360x360", alt: "#{res["result"]}のゴリラ" %>
     </li>
   <% end %>
 </ol>
@@ -37,7 +37,7 @@
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
       <% @results.each_with_index do |res, index| %>
         <% if index >= 5 && index < 10 %>
-          <div style="width: 20%; padding: 10px; margin-bottom: 10px;">
+          <div style="width: 20%; padding: 5px; margin-bottom: 10px;">
             <%= image_tag "#{res["result"]}.png", class: "gorilla-img", alt: "#{res["result"]}のゴリラ" %>
           </div>
         <% end %>
