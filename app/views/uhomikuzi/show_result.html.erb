@@ -1,56 +1,79 @@
 <% content_for(:title, "ゴリラのガチャガチャ | #{@results.size}回の結果") %>
+
 <div style="min-height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center;">
   <br>
   <h1 style="font-size: 50px;">ガチャの結果</h1>
   <br>
-<ol style="list-style: none; padding: 0;">
-  <% @results.each_with_index do |res, index| %>
-    <li style="margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #ddd;">
-      <% if @results.size == 10 %>
-      <strong style="font-size: 40px;"><%= index + 1 %>回目</strong><br>
-      <% end %>
-      <p style="font-size: 25px;">
-        <% if ["金", "銀", "銅", "？？？"].include?(res["result"]) %>
-          <span class="sparkle-text"><%= res["result"] %>のゴリラを引きました！</span>
-        <% else %>
-          <%= res["result"] %>のゴリラを引きました！
-        <% end %>
-      </p>
-      <%= image_tag "#{res["result"]}.png", size: "360x360", alt: "#{res["result"]}のゴリラ" %>
-    </li>
-  <% end %>
-</ol>
 
-<% if @results.size == 10 %>
-  <h2>10回の結果🦍</h2>
-  <br>
-  <div style="border: 2px solid #ddd; padding: 10px; border-radius: 10px;">
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+  <% if @results.size <= 10 %>
+    <ol style="list-style: none; padding: 0;">
       <% @results.each_with_index do |res, index| %>
-        <% if index < 5 %>
-          <div style="width: 20%; padding: 5px; margin-bottom: 10px;">
-            <%= image_tag "#{res["result"]}.png", class: "gorilla-img", alt: "#{res["result"]}のゴリラ" %>
-          </div>
+        <li style="margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #ddd;">
+          <strong style="font-size: 40px;"><%= index + 1 %>回目</strong><br>
+          <p style="font-size: 25px;">
+            <% if ["金", "銀", "銅", "？？？"].include?(res["result"]) %>
+              <span class="sparkle-text"><%= res["result"] %>のゴリラを引きました！</span>
+            <% else %>
+              <%= res["result"] %>のゴリラを引きました！
+            <% end %>
+          </p>
+          <%= image_tag "#{res["result"]}.png", size: "360x360", alt: "#{res["result"]}のゴリラ" %>
+        </li>
+      <% end %>
+    </ol>
+
+  <% else %>
+    <div class="text-center mb-3">
+      <button id="toggle-more" class="btn btn-outline-secondary">ガチャの詳細を確認する</button>
+    </div>
+
+    <div id="more-results" style="display: none;">
+      <ol style="list-style: none; padding: 0;">
+        <% @results.each_with_index do |res, index| %>
+          <li style="margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #ddd;">
+            <strong style="font-size: 40px;"><%= index + 1 %>回目</strong><br>
+            <p style="font-size: 25px;">
+              <% if ["金", "銀", "銅", "？？？"].include?(res["result"]) %>
+                <span class="sparkle-text"><%= res["result"] %>のゴリラを引きました！</span>
+              <% else %>
+                <%= res["result"] %>のゴリラを引きました！
+              <% end %>
+            </p>
+            <%= image_tag "#{res["result"]}.png", size: "360x360", alt: "#{res["result"]}のゴリラ" %>
+          </li>
         <% end %>
+      </ol>
+    </div>
+  <% end %>
+
+  <% if @results.size >= 2 %>
+    <h2><%= "#{@results.size}回の結果🦍" %></h2>
+    <br>
+    <div style="border: 2px solid #ddd; padding: 10px; border-radius: 10px;">
+      <% @results.each_slice(5) do |slice| %>
+        <div style="display: flex; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: 10px;">
+          <% slice.each do |res| %>
+            <div style="width: 20%; padding: 5px;">
+              <%= image_tag "#{res["result"]}.png", class: "gorilla-img", alt: "#{res["result"]}のゴリラ" %>
+            </div>
+          <% end %>
+        </div>
       <% end %>
     </div>
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
-      <% @results.each_with_index do |res, index| %>
-        <% if index >= 5 && index < 10 %>
-          <div style="width: 20%; padding: 5px; margin-bottom: 10px;">
-            <%= image_tag "#{res["result"]}.png", class: "gorilla-img", alt: "#{res["result"]}のゴリラ" %>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-<% end %>
-</div>
+  <% end %>
+
+  <% tweet_text = "あなたは#{@results.size}回回して、#{rare_gorilla(@results)}のゴリラを引きました。" %>
+  <% if ["虹", "金", "銀", "銅"].include?(rare_gorilla(@results)) %>
+    <% tweet_text += "おめでとうございます！" %>
+  <% end %>
+
   <div style="margin-top: 20px; margin-bottom: 5px; display: flex; justify-content: center; width: 100%;">
     <%= link_to "結果をシェアする", 
-            "https://twitter.com/intent/tweet?url=#{root_url}&text=あなたは#{rare_gorilla(@results)}のゴリラを引きました！&hashtags=ゴリラのガチャガチャ",
+            "https://twitter.com/intent/tweet?url=#{root_url}&text=#{CGI.escape(tweet_text)}&hashtags=ゴリラのガチャガチャ",
             target: "_blank", class: "btn btn-info" %>
   </div>
+
   <div style="margin-top: 20px; margin-bottom: 20px; display: flex; justify-content: center; width: 100%;">
     <%= link_to "戻る", root_path, class: "btn btn-dark" %>
   </div>
+</div>

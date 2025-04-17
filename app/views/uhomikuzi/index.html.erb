@@ -1,14 +1,23 @@
 <div style="min-height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center;">
   <h1>ゴリラのガチャを<br>引いてみよう！</h1>
-  <%= image_tag "1匹.png", size: "360x360", alt: "1匹のゴリラ" %>
+  <%= image_tag "1匹.png", size: "360x360", alt: "ゴリラ" %>
   
   <ul style="list-style-type: '・'; text-align: left;">
     <li>下のボタンを押すとガチャを回すことができます。</li>
     <li>運試しで1回だけ回してもいいですし、欲張りさんはいわゆる10連ガチャも回せます。</li>
+    <li>更なる欲張りさんのために、2～100の任意の数字の回数分回せるボタンを追加しました。</li>
     <li>光っているゴリラは大体レアです。</li>
   </ul>
   <div class="mt-4">
     <%= button_to "1回回す", result_path(times: 1), method: :post, form: { data: { turbo: false }, class: "d-inline" }, class: "btn btn-dark me-2" %>
     <%= button_to "10回回す", result_path(times: 10), method: :post, form: { data: { turbo: false }, class: "d-inline" }, class: "btn btn-dark" %>
   </div>
+  <div class="mt-4">
+    <%= form_with url: result_path, method: :post, local: true, class: "d-inline", data: { turbo: false } do %>
+    <div class="d-inline-flex align-items-center">
+      <%= number_field_tag :times, 100, min: 2, max: 100, class: "form-control me-2", style: "width: 80px;" %>
+      <%= submit_tag "回回す", class: "btn btn-dark" %>
+    </div>
+    <% end %>
+    </div>
 </div>
