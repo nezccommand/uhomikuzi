@@ -12,12 +12,14 @@
     <%= button_to "1回回す", result_path(times: 1), method: :post, form: { data: { turbo: false }, class: "d-inline" }, class: "btn btn-dark me-2" %>
     <%= button_to "10回回す", result_path(times: 10), method: :post, form: { data: { turbo: false }, class: "d-inline" }, class: "btn btn-dark" %>
   </div>
+  <%# 
   <div class="mt-4">
-    <%= form_with url: result_path, method: :post, local: true, class: "d-inline", data: { turbo: false } do %>
+    <%#= form_with url: result_path, method: :post, local: true, class: "d-inline", data: { turbo: false } do %>
     <div class="d-inline-flex align-items-center">
-      <%= number_field_tag :times, 100, min: 2, max: 100, class: "form-control me-2", style: "width: 80px;" %>
-      <%= submit_tag "回回す", class: "btn btn-dark" %>
+      <%#= number_field_tag :times, 100, min: 2, max: 100, class: "form-control me-2", style: "width: 80px;" %>
+      <%#= submit_tag "回回す", class: "btn btn-dark" %>
     </div>
-    <% end %>
-    </div>
+    <%# end %>
+  </div>
+  %>
 </div>
