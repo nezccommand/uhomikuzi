@@ -63,7 +63,7 @@
   <% end %>
 
   <% tweet_text = "あなたは#{@results.size}回回して、#{rare_gorilla(@results)}のゴリラを引きました。" %>
-  <% if ["虹", "金", "銀", "銅"].include?(rare_gorilla(@results)) %>
+  <% if ["？？？", "金", "銀", "銅"].include?(rare_gorilla(@results)) %>
     <% tweet_text += "おめでとうございます！" %>
   <% end %>
 
