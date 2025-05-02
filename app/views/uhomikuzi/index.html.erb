@@ -5,7 +5,8 @@
   <ul style="list-style-type: '・'; text-align: left;">
     <li>下のボタンを押すとガチャを回すことができます。</li>
     <li>運試しで1回だけ回してもいいですし、欲張りさんはいわゆる10連ガチャも回せます。</li>
-    <li>更なる欲張りさんのために、2～100の任意の数字の回数分回せるボタンを追加しました。</li>
+    <li>更なる欲張りさんのために、11回以上100回未満の回数を指定して回せるボタンを追加しました。</li>
+    <li>複数回回すと集計結果も出ます。スクリーンショットを取って楽しみましょう🦍</li>
     <li>光っているゴリラは大体レアです。</li>
   </ul>
   <div class="mt-4">
@@ -15,7 +16,7 @@
   <div class="mt-4">
     <%= form_with url: result_path, method: :post, local: true, class: "d-inline", data: { turbo: false } do %>
       <div class="input-group" style="width: 180px; height: 30px;">
-        <%= number_field_tag :times, 100, min: 2, max: 100, class: "form-control", style: "text-align: center;" %>
+        <%= number_field_tag :times, 100, min: 11, max: 100, class: "form-control", style: "text-align: center;" %>
         <button class="btn btn-dark" type="submit">回回す</button>
       </div>
     <% end %>

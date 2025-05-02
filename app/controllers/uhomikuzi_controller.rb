@@ -4,8 +4,7 @@ class UhomikuziController < ApplicationController
   end
 
   def result
-    times = params[:times].to_i
-    times = 1 if times < 1
+    times = [[params[:times].to_i, 100].min, 11].max
 
     results = times.times.map do
       number = rand(1..100)
@@ -13,7 +12,7 @@ class UhomikuziController < ApplicationController
       gorilla =
         case number
         when 100
-          "？？"
+          "？"
         when 98..99
           "金"
         when 93..97
