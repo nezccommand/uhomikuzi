@@ -11,7 +11,7 @@
         <li style="margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #ddd;">
           <strong style="font-size: 40px;"><%= index + 1 %>回目</strong><br>
           <p style="font-size: 25px;">
-            <% if ["金", "銀", "銅", "？？？"].include?(res["result"]) %>
+            <% if ["金", "銀", "銅", "？"].include?(res["result"]) %>
               <span class="sparkle-text"><%= res["result"] %>のゴリラを引きました！</span>
             <% else %>
               <%= res["result"] %>のゴリラを引きました！
@@ -33,7 +33,7 @@
           <li style="margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #ddd;">
             <strong style="font-size: 40px;"><%= index + 1 %>回目</strong><br>
             <p style="font-size: 25px;">
-              <% if ["金", "銀", "銅", "？？？"].include?(res["result"]) %>
+              <% if ["金", "銀", "銅", "？"].include?(res["result"]) %>
                 <span class="sparkle-text"><%= res["result"] %>のゴリラを引きました！</span>
               <% else %>
                 <%= res["result"] %>のゴリラを引きました！
@@ -51,7 +51,7 @@
     <br>
     <div style="border: 2px solid #ddd; padding: 10px; border-radius: 10px;">
       <% @results.each_slice(5) do |slice| %>
-        <div style="display: flex; flex-wrap: nowrap; justify-content: flex-start; margin-bottom: 10px;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: flex-start; margin-bottom: 10px;">
           <% slice.each do |res| %>
             <div style="width: 20%; padding: 5px;">
               <%= image_tag "#{res["result"]}.png", class: "gorilla-img", alt: "#{res["result"]}のゴリラ" %>
@@ -60,10 +60,21 @@
         </div>
       <% end %>
     </div>
+    <br>
+    <h3><%= "集計結果🦍" %></h3>
+    <ul class="list-group mt-2">
+      <% count_rarity(@results).each do |type, count| %>
+        <li class="list-group-item d-flex justify-content-between align-items-cente fs-5r">
+          <% css_class = ["？", "金", "銀", "銅"].include?(type) ? "font-weight: bold;" : "" %>
+            <span style="<%= css_class %>"><%= "#{type}のゴリラ：" %></span>
+            <span style="<%= css_class %>"><%= count %>匹</span>
+        </li>
+      <% end %>
+    </ul>
   <% end %>
 
-  <% tweet_text = "あなたは#{@results.size}回回して、#{rare_gorilla(@results)}のゴリラを引きました。" %>
-  <% if ["？？？", "金", "銀", "銅"].include?(rare_gorilla(@results)) %>
+  <% tweet_text = "あなたは#{@results.size}回回して#{rare_gorilla(@results)}のゴリラを引きました。" %>
+  <% if ["？", "金", "銀", "銅"].include?(rare_gorilla(@results)) %>
     <% tweet_text += "おめでとうございます！" %>
   <% end %>
 
