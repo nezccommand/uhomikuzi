@@ -4,7 +4,7 @@ class UhomikuziController < ApplicationController
   end
 
   def result
-    times = [[params[:times].to_i, 100].min, 11].max
+    times = [ [ params[:times].to_i, 100 ].min, 1 ].max
 
     results = times.times.map do
       number = rand(1..100)
