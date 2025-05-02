@@ -13,11 +13,11 @@
     <%= button_to "10回回す", result_path(times: 10), method: :post, form: { data: { turbo: false }, class: "d-inline" }, class: "btn btn-dark" %>
   </div>
   <div class="mt-4">
-    <%#= form_with url: result_path, method: :post, local: true, class: "d-inline", data: { turbo: false } do %>
-    <div class="d-inline-flex align-items-center">
-      <%#= number_field_tag :times, 100, min: 2, max: 100, class: "form-control me-2", style: "width: 80px;" %>
-      <%#= submit_tag "回回す", class: "btn btn-dark" %>
-    </div>
-    <%# end %>
+    <%= form_with url: result_path, method: :post, local: true, class: "d-inline", data: { turbo: false } do %>
+      <div class="input-group" style="width: 180px; height: 30px;">
+        <%= number_field_tag :times, 100, min: 2, max: 100, class: "form-control", style: "text-align: center;" %>
+        <button class="btn btn-dark" type="submit">回回す</button>
+      </div>
+    <% end %>
   </div>
 </div>
