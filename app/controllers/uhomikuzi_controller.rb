@@ -13,7 +13,7 @@ class UhomikuziController < ApplicationController
       gorilla =
         case number
         when 100
-          "？？？"
+          "？？"
         when 98..99
           "金"
         when 93..97
